@@ -28,8 +28,8 @@ app.use(session({
   // 配置 cookie
   cookie: {
     path: '/',
-    httpOnly: true,
-    maxAge: 24 * 60 * 60 * 1000
+    httpOnly: true,  // 只能通过后端修改cookie，不允许前端修改
+    maxAge: 24 * 60 * 60 * 1000  //24h
   } 
 }))
 
