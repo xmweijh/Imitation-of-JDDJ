@@ -52,6 +52,32 @@
 }
 ```
 
+## 获取用户信息
+
+### url  
+`/api/user/info`
+
+### method 
+`get`
+
+### request body
+
+```js
+无
+``` 
+
+### response body
+
+```js
+{
+    errno: 0,
+    data: {
+        username: 'zhangsan'
+    },
+    message: 'errno !== 0 的错误信息'
+}
+```
+
 ## 创建收货地址
 
 ### url  
@@ -211,7 +237,7 @@
     data: [
         {
             _id: '商店ID',
-            name: '商店名'，
+            name: '商店名',
             imgUrl: '商店图片',
             sales: 1000, // 月售
             expressLimit: 20, // 起送价格
@@ -264,7 +290,7 @@
 
 ### query
 `tab=全部商品`
-示例：`/api/shop/10/products?tab=all`  `/api/shop/10/products?tab=second`
+示例：`/api/shop/10/products?tab=all`  `/api/shop/10/products?tab=seckill`
 ### method 
 `get`
 
