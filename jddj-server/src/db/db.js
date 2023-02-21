@@ -1,6 +1,6 @@
 /**
  * @description mongoose 连接数据库
- * @author 双越老师
+ * @author xmweijh
  */
 
 const mongoose = require('mongoose')
@@ -8,24 +8,20 @@ const mongoose = require('mongoose')
 const url = 'mongodb://localhost:27017' // 本地默认的 mongodb 服务地址
 const dbName = 'marketDB' // 数据库名称
 
-// 以下设置，参考 https://mongoosejs.com/docs/deprecations.html#ensureIndex
-// 解决提示 DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
-mongoose.set('useCreateIndex', true)
-// 解决提示 DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated.
-mongoose.set('useFindAndModify', false)
+// 解决DeprecationWarning警告
+mongoose.set('strictQuery', false);
 
 // 开始连接
-mongoose.connect(`${url}/${dbName}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(`${url}/${dbName}`)
 
 // 连接对象
 const db = mongoose.connection
 
+// 捕捉错误
 db.on('error', err => {
     console.error('mongoose connect error', err)
 })
+
 // db.once('open', () => {
 //     // 用以测试数据库连接是否成功
 //     console.log('mongoose connect success')
