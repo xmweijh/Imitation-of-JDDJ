@@ -29,7 +29,6 @@ router.post('/login', async function(ctx, next) {
     ctx.session.userInfo = {
       username
     }
-
     // 返回成功
     ctx.body = new SuccessModel()
   } else {
