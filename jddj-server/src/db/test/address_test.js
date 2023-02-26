@@ -3,24 +3,38 @@
  * @author xmweijh
  */
 
-const Address = require('../../models/Address')
+const { Address } = require('../../models/index')
 
-!(async () => {
-    // await Address.create({
-    //     username: 'zhangsan',  // 与用户关联
-    //     city: '重庆',
-    //     department: '江南水岸小区',
-    //     houseNumber: '123',
-    //     name: '张三',
-    //     phone: '18677778888'
+!(async() => {
+    // // 创建
+    // const a1 = new Address({
+    //     username: 'zhangsan',
+    //     city: '北京',
+    //     department: '西二旗小区',
+    //     houseNumber: '2号楼1单元403',
+    //     name: '123',
+    //     phone: '18677778888',
     // })
-    // const address = await Address.find({ username: 'zhangsan'}).sort({updatedAt: -1})
-    const address = await Address.findOneAndUpdate({_id: '63f4a24a644a628f45496635', username:'zhangsan'},{
-        department: '天赋小区',
-        houseNumber: '1243',
-        name: '李四',
-    }, {
-        new:true  // 返回更新后的数据，默认返回更新前的数据
-    })
-    console.log(address)
+    // a1.save() // 保存到数据库
+
+    // // 创建
+    // const a2 = new Address({
+    //     username: 'zhangsan',
+    //     city: '北京',
+    //     department: '软件园二期',
+    //     houseNumber: '百度科技园',
+    //     name: '123',
+    //     phone: '18677778888',
+    // })
+    // a2.save() // 保存到数据库
+
+    // // 获取地址列表，**按照更新时间逆序**
+    // const addressList = await Address.find().sort({ updatedAt: -1 }) // 按更新时间倒序
+    // console.log('address list', addressList)
+
+    // 获取单个地址，根据 id 获取（以下两种写法都可以）
+    // const address = await Address.findOne({ _id: '5ef05481e6f8ed3a3bb59880' })
+    const address = await Address.findById('5ef05481e6f8ed3a3bb59881')
+    console.log('address', address)
+
 })()

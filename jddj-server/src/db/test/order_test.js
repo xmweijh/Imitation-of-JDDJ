@@ -3,9 +3,7 @@
  * @author xmweijh
  */
 
-const Order = require('../../models/Order')
-const Product = require('../../models/Product')
-const Address = require('../../models/Address')
+const { Address, Order, Product } = require('../../models/index')
 
 !(async () => {
     // 模拟一个订单的创建过程
@@ -13,20 +11,20 @@ const Address = require('../../models/Address')
     const username = 'zhangsan'
 
     // 根据 addressId 获取地址信息
-    const address = await Address.findById('63f4a2805e372842d843b537')
+    const address = await Address.findById('5ef05481e6f8ed3a3bb59881')
 
     // 商店信息
-    const shopId = '63f4a622322469d92345a724'
+    const shopId = '5ef05834f187fc3bbd81f4df'
     const shopName = '沃尔玛'
 
     // 订单的商品 id 和数量
     const products = [
         {
-            id: '63f4a9302f0eaaef6f428f57',
+            id: '5ef0823a9e1a1f4bd32e5311',
             num: 6
         },
         {
-            id: '63f4a952e75803ee259ce16a',
+            id: '5ef0823a9e1a1f4bd32e5312',
             num: 3
         }
     ]
@@ -38,7 +36,7 @@ const Address = require('../../models/Address')
         _id: {
             $in: pIds
         },
-        // 条件2：商店 id  其实id已经能确定 以防万一
+        // 条件2：商店 id
         shopId,
     })
 

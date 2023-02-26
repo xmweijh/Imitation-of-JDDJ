@@ -12,6 +12,6 @@ module.exports = async (ctx, next) => {
     }
     ctx.body = {
         errno: -1,
-        message: '登录验证失败'
+        message: '登录验证失败'+ session
     }
 }
