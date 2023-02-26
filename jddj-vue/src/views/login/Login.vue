@@ -28,6 +28,11 @@ const toast = ref(null)
 // 处理登录逻辑
 const handleLogin = async () => {
   try {
+    const { username, password } = data
+    if (username === '' || password === '') {
+      toast.value.showToast('用户名或密码不能为空')
+      return
+    }
     const result = await post('/api/user/login', {
       username: data.username,
       password: data.password

@@ -35,6 +35,10 @@ const toast = ref(null)
 // 处理注册相关逻辑
 const handleRegister = async () => {
   try {
+    if (data.password !== data.ensurement) {
+      toast.value.showToast('确认密码和密码不同')
+      return
+    }
     const result = await post('/api/user/register', {
       username: data.username,
       password: data.password
