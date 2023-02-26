@@ -12,12 +12,12 @@
         <div class="order__content">
           <div class="order__content__imgs">
             <template v-for="(innerItem, innerIndex) in item.products" :key="innerIndex">
-              <img class="order__content__img" :src="innerItem.product.img" v-if="innerIndex <= 3" />
+              <img v-if="innerIndex <= 3" class="order__content__img" :src="'http://localhost:3000'+innerItem.product.imgUrl" />
             </template>
           </div>
           <div class="order__content__info">
             <div class="order__content__price">¥ {{ item.totalPrice }}</div>
-            <div class="order__content__count">共 {{ item.totalNumber }} 件</div>
+            <div class="order__content__count">共 {{ item.totalNum }} 件</div>
           </div>
         </div>
       </div>
@@ -33,25 +33,22 @@ import Docker from '../../components/Docker'
 
 // 处理订单列表逻辑
 const data = reactive({ list: [] })
-const getNearbyList = async () => {
+const getOrderList = async () => {
   const result = await get('/api/order')
   if (result?.errno === 0 && result?.data?.length) {
-    const orderList = result.data
+    const orderList = result.data || []
     orderList.forEach((order) => {
-      const products = order.products || []
-      let totalPrice = 0
-      let totalNumber = 0
-      products.forEach((productItem) => {
-        totalNumber += (productItem?.orderSales || 0)
-        totalPrice += ((productItem?.product?.price * productItem?.orderSales) || 0)
+      order.totalPrice = 0
+      order.totalNum = 0
+      ;(order.products || []).forEach((item) => {
+        order.totalPrice += (item?.product?.price || 0) * (item?.orderSales || 0)
+        order.totalNum += (item?.orderSales || 0)
       })
-      order.totalPrice = totalPrice
-      order.totalNumber = totalNumber
     })
-    data.list = result.data
+    data.list = orderList
   }
 }
-getNearbyList()
+getOrderList()
 
 </script>
 

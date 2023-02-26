@@ -38,5 +38,6 @@ defineExpose({
   background: rgba(0, 0, 0, .35);
   border-radius: .05rem;
   color: $bgColor;
+  z-index: 10;
 }
 </style>

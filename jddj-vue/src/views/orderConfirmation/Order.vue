@@ -13,6 +13,7 @@
       </div>
     </div>
   </div>
+  <Toast ref="toast"/>
 </template>
 
 <script setup>
@@ -20,9 +21,13 @@ import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 import { post } from '../../utils/request'
+import Toast from '@/components/Toast'
 import { useCommonCartEffect } from '../../effects/cartEffects'
+import useAddressEffect from './addressEffect'
 
+const toast = ref(null)
 const route = useRoute()
+const address = useAddressEffect()
 const shopId = route.params.id
 const { calculations, shopName, productList } = useCommonCartEffect(shopId)
 
@@ -34,22 +39,26 @@ const handleConfirmOrder = async (isCanceled) => {
   const products = []
   for (const i in productList.value) {
     const product = productList.value[i]
-    products.push({ id: parseInt(product._id, 10), num: product.count })
+    products.push({ id: product._id, num: product.count })
   }
   try {
     const result = await post('/api/order', {
-      addressId: 1,
+      addressId: address.value._id,
       shopId,
       shopName: shopName.value,
       isCanceled,
       products
     })
+    console.log(result)
     if (result?.errno === 0) {
       store.commit('clearCartData', shopId)
       router.push({ name: 'OrderList' })
+    } else {
+      toast.value.showToast('注册失败')
     }
   } catch (e) {
     // 提示下单失败
+    toast.value.showToast('请求失败')
   }
 }
 
