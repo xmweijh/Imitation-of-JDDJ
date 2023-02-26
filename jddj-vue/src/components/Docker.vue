@@ -3,10 +3,10 @@
         <div class="docker">
             <div v-for="(item, index) in dockerList"
                 :class="['docker__item', index === currentIndex && 'docker__item--active' ]" :key="item.icon">
-                <!-- <router-link :to='item.to'> -->
+                <router-link :to='item.to'>
                     <div class="iconfont" :class="item.icon" />
                     <div class="docker__title">{{ item.text }}</div>
-                <!-- </router-link> -->
+                </router-link>
             </div>
         </div>
     </div>

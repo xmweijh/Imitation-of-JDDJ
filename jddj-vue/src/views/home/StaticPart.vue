@@ -5,8 +5,8 @@
     <span class="iconfont position_notice icon-xiaoxi"></span>
   </div>
   <div class="search">
-    <span class="iconfon icon-sousuo"></span>
-    <span class="search__text">搜索附近的商家、商店</span>
+    <span class="iconfont icon-sousuo"></span>
+    <input type="text" class="search__input" placeholder="搜索附近的商家、商店">
   </div>
   <div class="banner">
     <img
@@ -78,8 +78,11 @@ const iconsList = [
     padding: 0 .08rem 0 .16rem;
     font-size: .16rem;
   }
-  &__text {
-    display: inline-block;
+  &__input {
+    border:none;
+    width: 80%;
+    outline: none;
+    background-color: transparent;
     font-size: .14rem;
   }
 }
