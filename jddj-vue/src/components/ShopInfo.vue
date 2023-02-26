@@ -41,14 +41,14 @@ defineProps(['item', 'hideBorder'])
     &__title {
       line-height: .22rem;
       font-size: .16rem;
-      color: $content-fontcolor;
+      color: $content-fontColor;
     }
 
     &__tags {
       margin-top: .08rem;
       line-height: .18rem;
       font-size: .13rem;
-      color: $content-fontcolor;
+      color: $content-fontColor;
     }
 
     &__tag {

@@ -47,7 +47,7 @@ const { shopName, productList } = useCommonCartEffect(shopId)
   &__title {
     padding: .16rem;
     font-size: .16rem;
-    color: $content-fontcolor;
+    color: $content-fontColor;
   }
 
   &__wrapper {
@@ -83,7 +83,7 @@ const { shopName, productList } = useCommonCartEffect(shopId)
       margin: 0;
       line-height: .2rem;
       font-size: .14rem;
-      color: $content-fontcolor;
+      color: $content-fontColor;
       @include ellipsis;
     }
 

@@ -17,7 +17,8 @@ const getLocaCartList = () => {
 
 export default Vuex.createStore({
   state: {
-    cartList: getLocaCartList()
+    cartList: getLocaCartList(),
+    addressList: []
   },
   mutations: {
     changeCartItemInfo (state, payload) {
@@ -70,6 +71,9 @@ export default Vuex.createStore({
     },
     clearCartData (state, shopId) {
       state.cartList[shopId].productList = {}
+    },
+    changeAddressList (state, addressList) {
+      state.addressList.splice(0, state.addressList.length, ...addressList)
     }
   }
 })

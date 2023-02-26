@@ -3,27 +3,43 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const routes = [{
   path: '/',
   name: 'Home',
-  component: () => import(/* webpackChunkName: "home" */ '../views/home/Home')
-}, {
+  component: () => import(/* webpackChunkName: "home" */ '@/views/home/Home')
+},
+{
+  path: '/profile',
+  name: 'Profile',
+  component: () => import(/* webpackChunkName: "profile" */ '@/views/profile/Profile')
+},
+{
+  path: '/addressList',
+  name: 'AddressList',
+  component: () => import(/* webpackChunkName: "addressList" */ '@/views/addressList/AddressList')
+},
+{
+  path: '/upsertAddress/:id?',
+  name: 'UpsertAddress',
+  component: () => import(/* webpackChunkName: "upsertAddress" */ '@/views/upsertAddress/UpsertAddress')
+},
+{
   path: '/cartList',
   name: 'CartList',
-  component: () => import(/* webpackChunkName: "cartList" */ '../views/cartList/CartList')
+  component: () => import(/* webpackChunkName: "cartList" */ '@/views/cartList/CartList')
 }, {
   path: '/orderConfirmation/:id',
   name: 'OrderConfirmation',
-  component: () => import(/* webpackChunkName: "orderConfirmation" */ '../views/orderConfirmation/OrderConfirmation')
+  component: () => import(/* webpackChunkName: "orderConfirmation" */ '@/views/orderConfirmation/OrderConfirmation')
 }, {
   path: '/orderList',
   name: 'OrderList',
-  component: () => import(/* webpackChunkName: "orderList" */ '../views/orderList/OrderList')
+  component: () => import(/* webpackChunkName: "orderList" */ '@/views/orderList/OrderList')
 }, {
   path: '/shop/:id',
   name: 'Shop',
-  component: () => import(/* webpackChunkName: "shop" */ '../views/shop/Shop')
+  component: () => import(/* webpackChunkName: "shop" */ '@/views/shop/Shop')
 }, {
   path: '/register',
   name: 'Register',
-  component: () => import(/* webpackChunkName: "register" */ '../views/register/Register'),
+  component: () => import(/* webpackChunkName: "register" */ '@/views/register/Register'),
   beforeEnter (to, from, next) {
     const { isLogin } = localStorage
     isLogin ? next({ name: 'Home' }) : next()
@@ -31,7 +47,7 @@ const routes = [{
 }, {
   path: '/login',
   name: 'Login',
-  component: () => import(/* webpackChunkName: "login" */ '../views/login/Login'),
+  component: () => import(/* webpackChunkName: "login" */ '@/views/login/Login'),
   beforeEnter (to, from, next) {
     const { isLogin } = localStorage
     isLogin ? next({ name: 'Home' }) : next()

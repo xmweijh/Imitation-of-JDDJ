@@ -60,14 +60,14 @@ const handleBackClick = () => { router.back() }
       line-height: .22rem;
       padding: .16rem 0 .14rem .16rem;
       font-size: .16rem;
-      color: $content-fontcolor;
+      color: $content-fontColor;
     }
 
     &__address {
       line-height: .2rem;
       padding: 0 .4rem 0 .16rem;
       font-size: .14rem;
-      color: $content-fontcolor;
+      color: $content-fontColor;
     }
 
     &__info {

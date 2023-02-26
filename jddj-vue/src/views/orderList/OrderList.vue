@@ -72,7 +72,7 @@ getNearbyList()
   line-height: .44rem;
   background: $bgColor;
   font-size: .16rem;
-  color: $content-fontcolor;
+  color: $content-fontColor;
   text-align: center;
 }
 
@@ -85,7 +85,7 @@ getNearbyList()
     margin-bottom: .16rem;
     line-height: .22rem;
     font-size: .16rem;
-    color: $content-fontcolor;
+    color: $content-fontColor;
   }
 
   &__status {
@@ -122,7 +122,7 @@ getNearbyList()
     &__count {
       line-height: .14rem;
       font-size: .12rem;
-      color: $content-fontcolor;
+      color: $content-fontColor;
       text-align: right;
     }
   }

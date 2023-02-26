@@ -80,7 +80,7 @@ getItemData()
       background: none;
       height: .32rem;
       font-size: .14rem;
-      color: $content-fontcolor;
+      color: $content-fontColor;
 
       &::placeholder {
         color:$content-notice-fontcolor;

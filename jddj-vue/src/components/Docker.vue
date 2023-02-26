@@ -19,7 +19,7 @@ const dockerList = [
   { icon: 'icon-shouye', text: '首页', to: { name: 'Home' } },
   { icon: 'icon-gouwuche', text: '购物车', to: { name: 'CartList' } },
   { icon: 'icon-dingdan', text: '订单', to: { name: 'OrderList' } },
-  { icon: 'icon-wode', text: '我的', to: { name: 'Home' } }
+  { icon: 'icon-wode', text: '我的', to: { name: 'Profile' } }
 ]
 
 </script>
@@ -43,7 +43,7 @@ const dockerList = [
         text-align: center;
 
         a {
-            color: $content-fontcolor;
+            color: $content-fontColor;
             text-decoration: none;
         }
 

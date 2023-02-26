@@ -136,14 +136,14 @@ const getProductCartCount = (shopId, productId) => {
       margin: 0;
       line-height: .2rem;
       font-size: .14rem;
-      color: $content-fontcolor;
+      color: $content-fontColor;
       @include ellipsis;
     }
 
     &__sales {
       margin: .06rem 0;
       font-size: .12rem;
-      color: $content-fontcolor;
+      color: $content-fontColor;
     }
 
     &__price {

@@ -25,10 +25,8 @@ router.post('/login', async function(ctx, next) {
   // 登录验证
   const res = await login(username, password)
   if (res) {
-    // 验证成功，设置 session.userInfo
-    ctx.session.userInfo = {
-      username
-    }
+    // 验证成功，设置 session.
+    ctx.session.userInfo = res
     // 返回成功
     ctx.body = new SuccessModel()
   } else {

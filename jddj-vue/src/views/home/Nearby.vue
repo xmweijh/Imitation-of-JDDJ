@@ -31,7 +31,7 @@ getNearbyList()
     margin: .16rem 0 .02rem 0;
     font-size: .18rem;
     font-weight: normal;
-    color: $content-fontcolor;
+    color: $content-fontColor;
   }
 
   a {

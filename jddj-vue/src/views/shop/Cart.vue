@@ -116,7 +116,7 @@ const handleCartShowChange = () => {
     line-height: .52rem;
     border-bottom: .01rem solid $content-bgColor;
     font-size: .14rem;
-    color: $content-fontcolor;
+    color: $content-fontColor;
 
     &__all {
       width: .64rem;
@@ -170,7 +170,7 @@ const handleCartShowChange = () => {
       margin: 0;
       line-height: .2rem;
       font-size: .14rem;
-      color: $content-fontcolor;
+      color: $content-fontColor;
       @include ellipsis;
     }
 
@@ -252,7 +252,7 @@ const handleCartShowChange = () => {
 
   &__info {
     flex: 1;
-    color: $content-fontcolor;
+    color: $content-fontColor;
     font-size: .12rem;
 
     &__price {

@@ -78,7 +78,7 @@ const handleShowConfirmChange = (status) => {
     flex: 1;
     text-indent: .24rem;
     font-size: .14rem;
-    color: $content-fontcolor;
+    color: $content-fontColor;
   }
 
   &__btn {

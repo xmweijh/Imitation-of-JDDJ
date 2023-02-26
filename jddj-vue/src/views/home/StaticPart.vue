@@ -65,7 +65,7 @@ const iconsList = [
     top: .17rem;
     font-size: .2rem;
   }
-  color: $content-fontcolor;
+  color: $content-fontColor;
 }
 .search {
   margin-bottom: .12rem;
@@ -110,7 +110,7 @@ const iconsList = [
     &__desc {
       margin: .06rem 0 .16rem 0;
       text-align: center;
-      color: $content-fontcolor;
+      color: $content-fontColor;
     }
   }
 }

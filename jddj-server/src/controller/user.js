@@ -14,7 +14,7 @@ async function login(username, password) {
     const user = await User.findOne({ username, password })
     if (user != null) {
         // 登录成功
-        return true
+        return user
     }
     // 登录失败
     return false

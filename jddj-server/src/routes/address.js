@@ -49,7 +49,6 @@ router.patch('/:id', loginCheck, async function (ctx, next) {
 
     const id = ctx.params.id // 获取路由的动态参数
     const data = ctx.request.body || {} // 前端传来的数据
-
     const newAddress = await updateAddress(id, username, data)
     ctx.body = new SuccessModel(newAddress)
 })

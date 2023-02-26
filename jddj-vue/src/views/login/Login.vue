@@ -89,7 +89,7 @@ const handleRegisterClick = () => {
       width: 100%;
       background: none;
       font-size: .16rem;
-      color: $content-fontcolor;
+      color: $content-fontColor;
 
       &::placeholder {
         color: $content-notice-fontcolor;
