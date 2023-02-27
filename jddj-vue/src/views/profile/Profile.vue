@@ -75,6 +75,9 @@ const getUserInfo = async () => {
     const { _id, username } = result.data
     userInfo._id = _id || ''
     userInfo.username = username || ''
+  } else if (result?.errno === -1) {
+    localStorage.removeItem('isLogin')
+    router.replace({ name: 'Login' })
   }
 }
 getUserInfo()

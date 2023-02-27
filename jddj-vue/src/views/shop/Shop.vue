@@ -35,7 +35,7 @@ const getItemData = async () => {
 // 点击回退逻辑
 const router = useRouter()
 const handleBackClick = () => {
-  router.back()
+  router.push({ name: 'Home' })
 }
 
 getItemData()

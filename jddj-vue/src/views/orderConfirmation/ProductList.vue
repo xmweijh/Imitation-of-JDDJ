@@ -5,7 +5,7 @@
     </div>
     <div class="products__wrapper">
       <div class="products__list">
-        <div v-for="item in productList" :key="item._id" class="products__item">
+        <div v-for="item in currentList" :key="item._id" class="products__item">
           <img class="products__item__img" :src="'http://localhost:3000' + item.imgUrl" />
           <div class="products__item__detail">
             <h4 class="products__item__title">{{ item.name }}</h4>
@@ -21,19 +21,36 @@
             </p>
           </div>
         </div>
+        <div v-if="productNum>2" class="products__show" @click="showMore">
+          共计{{productNum}}件/{{calculations.total}}份
+          <span class="iconfont icon-fanhui" :class="showM? 'shrink': 'expand'"></span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useCommonCartEffect } from '../../effects/cartEffects'
-
+const showM = ref(false)
 const route = useRoute()
 const shopId = route.params.id
-const { shopName, productList } = useCommonCartEffect(shopId)
+const { shopName, productList, calculations } = useCommonCartEffect(shopId)
 
+const productNum = computed(() => {
+  return Object.keys(productList.value).length
+})
+
+const showMore = () => {
+  showM.value = !showM.value
+}
+
+const currentList = computed(() => {
+  if (showM.value) return productList.value
+  else return Object.fromEntries(Object.entries(productList.value).slice(0, 2))
+})
 </script>
 
 <style lang="scss" scoped>
@@ -62,6 +79,7 @@ const { shopName, productList } = useCommonCartEffect(shopId)
 
   &__list {
     background: $bgColor;
+    padding-bottom: 0.16rem;
   }
 
   &__item {
@@ -104,5 +122,25 @@ const { shopName, productList } = useCommonCartEffect(shopId)
     &__yen {
       font-size: .12rem;
     }
+  }
+
+  &__show {
+    text-align: center;
+    margin: 0 .16rem;
+    height: 2em;
+    line-height: 2em;
+    font-size: .14rem;
+    color: $light-fontColor;
+    background: $search-bgColor;
+     .expand::before {
+      display: inline-block;
+      font-size: .18rem;
+      transform: rotate(-90deg);
+     }
+     .shrink::before {
+      display: inline-block;
+      font-size: .18rem;
+      transform: rotate(90deg);
+     }
   }
 }</style>

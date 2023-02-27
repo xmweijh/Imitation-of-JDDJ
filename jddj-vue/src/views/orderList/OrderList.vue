@@ -30,7 +30,9 @@
 import { reactive } from 'vue'
 import { get } from '../../utils/request'
 import Docker from '../../components/Docker'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 // 处理订单列表逻辑
 const data = reactive({ list: [] })
 const getOrderList = async () => {
@@ -46,6 +48,9 @@ const getOrderList = async () => {
       })
     })
     data.list = orderList
+  } else if (result?.errno === -1) {
+    localStorage.removeItem('isLogin')
+    router.replace({ name: 'Login' })
   }
 }
 getOrderList()

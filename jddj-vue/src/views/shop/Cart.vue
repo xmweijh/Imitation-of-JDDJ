@@ -15,7 +15,7 @@
       <div v-for="item in productList" :key="item._id" class="product__item">
         <div class="product__item__checked iconfont" :class="item.check? 'icon-quanxuan' : 'icon-weixuanzhongyuanquan'"
           @click="() => changeCartItemChecked(shopId, item._id)" />
-        <img class="product__item__img" :src="+item.imgUrl" />
+        <img class="product__item__img" :src="'http://localhost:3000'+item.imgUrl" />
         <div class="product__item__detail">
           <h4 class="product__item__title">{{ item.name }}</h4>
           <p class="product__item__price">

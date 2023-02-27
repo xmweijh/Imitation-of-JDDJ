@@ -28,6 +28,7 @@ app.use(cors({
 // session配置
 app.keys=['xmweijh@#67823hl']  // 用于加密，和 express 的 secret 一样
 app.use(session({
+  key: 'jddj.sid',  //浏览器 cookie 的名字
   // 配置 cookie
   cookie: {
     path: '/',
